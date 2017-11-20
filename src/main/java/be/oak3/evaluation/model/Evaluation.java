@@ -1,7 +1,5 @@
 package be.oak3.evaluation.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.Entity;
 import java.util.List;
 
