@@ -12,9 +12,9 @@ public abstract class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @NotNull
-   private String name;
+    private String name;
     @NotNull
-   private String company;
+    private String company;
 
     public Person() {
     }

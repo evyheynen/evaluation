@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 
 public class Student extends Person {
     @NotNull
-   private String email;
+    private String email;
 
     public Student() {
     }

@@ -15,6 +15,6 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     @Override
     public int addEvaluation(Evaluation evaluation) {
         Evaluation e = repository.saveAndFlush(evaluation);
-        return e!= null ? 1: 0;
+        return e != null ? 1 : 0;
     }
 }
