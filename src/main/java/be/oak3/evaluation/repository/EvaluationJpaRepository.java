@@ -9,6 +9,6 @@ import java.util.List;
 public interface EvaluationJpaRepository extends JpaRepository<Evaluation, Integer> {
 
 
-List<Instructor> findByInstructor(String name);
+List<Instructor> findByInstructor();
 
 }

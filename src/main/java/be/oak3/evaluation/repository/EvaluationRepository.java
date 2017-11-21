@@ -10,6 +10,6 @@ public interface EvaluationRepository {
     int updateEvaluation(Evaluation evaluation);
     int deleteEvaluation(Evaluation evaluation);
 
-    List<Instructor> findByInstructor(String name);
+    List<Instructor> findByInstructor();
 
 }
