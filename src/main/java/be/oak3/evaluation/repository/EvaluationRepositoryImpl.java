@@ -36,7 +36,7 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
 
     @Override
     @Query
-    public List<Instructor> findByInstructor(Instructor instructor) {
-        return repository.findByInstructor(instructor);
+    public List<Instructor> findByInstructor(String name) {
+        return repository.findByInstructor(name);
     }
 }
