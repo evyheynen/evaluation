@@ -2,6 +2,7 @@ package be.oak3.evaluation.repository;
 
 import be.oak3.evaluation.model.Evaluation;
 import be.oak3.evaluation.model.Instructor;
+import be.oak3.evaluation.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -39,4 +40,8 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     public List<Instructor> findByInstructor(Instructor instructor) {
         return repository.findByInstructor(instructor);
     }
+
+    public List<Question> findByQuestion(Question question) {return repository.findByQuestion(question);}
+
+
 }

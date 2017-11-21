@@ -12,6 +12,7 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     @NotNull
     private String question;
 

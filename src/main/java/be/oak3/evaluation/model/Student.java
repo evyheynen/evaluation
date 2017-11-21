@@ -3,6 +3,7 @@ package be.oak3.evaluation.model;
 import javax.validation.constraints.NotNull;
 
 public class Student extends Person {
+
     @NotNull
     private String email;
 
@@ -12,7 +13,6 @@ public class Student extends Person {
     public Student(int id, String name, String company, String email) {
         super(id, name, company);
         this.email = email;
-
     }
 
     public String getEmail() {

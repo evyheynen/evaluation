@@ -2,6 +2,7 @@ package be.oak3.evaluation.repository;
 
 import be.oak3.evaluation.model.Evaluation;
 import be.oak3.evaluation.model.Instructor;
+import be.oak3.evaluation.model.Question;
 
 import java.util.List;
 
@@ -11,5 +12,6 @@ public interface EvaluationRepository {
     int deleteEvaluation(Evaluation evaluation);
 
     List<Instructor> findByInstructor(Instructor instructor);
+    List<Question> findByQuestion(Question question);
 
 }

@@ -17,7 +17,7 @@ public class Evaluation {
 
     public Evaluation(Student student, Instructor instructor, List<Question> questions, List<Answer> answer) {
         this.student = student;
-        this.instructor= instructor;
+        this.instructor = instructor;
         this.questions = questions;
         this.answer = answer;
     }
@@ -43,7 +43,7 @@ public class Evaluation {
     }
 
     public void setInstructor(Instructor instructor) {
-        this.instructor= instructor;
+        this.instructor = instructor;
     }
 
     public List<Question> getQuestions() {
@@ -66,7 +66,7 @@ public class Evaluation {
     public String toString() {
         return "Evaluation{" +
                 "student=" + student +
-                ", instructor" + instructor+
+                ", instructor" + instructor +
                 ", questions=" + questions +
                 ", answer=" + answer +
                 '}';

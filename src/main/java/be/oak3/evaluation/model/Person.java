@@ -8,11 +8,14 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public abstract class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     @NotNull
     private String name;
+
     @NotNull
     private String company;
 
