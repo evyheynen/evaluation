@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 @Repository
 public class EvaluationRepositoryImpl implements EvaluationRepository {
 

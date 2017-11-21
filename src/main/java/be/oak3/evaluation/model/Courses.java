@@ -1,19 +1,20 @@
 package be.oak3.evaluation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
-@Entity
+@Entity(name="courses")
 public class Courses {
-
+//
     @Id
     @GeneratedValue
     private int id;
 
     @NotNull
     private String name;
+
+    //private Set<Courses> courses;
 
     public Courses() {
     }
@@ -38,6 +39,16 @@ public class Courses {
     public void setName(String name) {
         this.name = name;
     }
+
+//    public Set<Courses> getCourses() {
+//        return courses;
+//    }
+//
+//    @ManyToMany(mappedBy = "courses")
+//
+//    public void setCourses(Set<Courses> courses) {
+//        this.courses = courses;
+//    }
 
     @Override
     public String toString() {
