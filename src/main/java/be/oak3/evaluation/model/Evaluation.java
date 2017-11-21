@@ -8,16 +8,16 @@ public class Evaluation {
 
 
     private Student student;
-    private Teacher teacher;
+    private Instructor instructor;
     private List<Question> questions;
     private List<Answer> answer;
 
     public Evaluation() {
     }
 
-    public Evaluation(Student student, Teacher teacher, List<Question> questions, List<Answer> answer) {
+    public Evaluation(Student student, Instructor teacher, List<Question> questions, List<Answer> answer) {
         this.student = student;
-        this.teacher = teacher;
+        this.instructor = teacher;
         this.questions = questions;
         this.answer = answer;
     }
@@ -30,12 +30,12 @@ public class Evaluation {
         this.student = student;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public Instructor getTeacher() {
+        return instructor;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setTeacher(Instructor teacher) {
+        this.instructor = teacher;
     }
 
     public List<Question> getQuestions() {
@@ -58,7 +58,7 @@ public class Evaluation {
     public String toString() {
         return "Evaluation{" +
                 "student=" + student +
-                ", teacher=" + teacher +
+                ", instructor=" + instructor +
                 ", questions=" + questions +
                 ", answer=" + answer +
                 '}';
