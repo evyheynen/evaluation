@@ -1,8 +1,19 @@
 package be.oak3.evaluation.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public abstract class Person {
-   private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    @NotNull
    private String name;
+    @NotNull
    private String company;
 
     public Person() {

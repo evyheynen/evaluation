@@ -1,7 +1,9 @@
 package be.oak3.evaluation.model;
 
-public class Student extends Person {
+import javax.validation.constraints.NotNull;
 
+public class Student extends Person {
+    @NotNull
    private String email;
 
     public Student() {
