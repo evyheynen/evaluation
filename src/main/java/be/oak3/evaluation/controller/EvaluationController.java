@@ -22,5 +22,6 @@ public class EvaluationController {
     @RequestMapping (method= RequestMethod.POST)
     public ResponseEntity addEvaluation(Evaluation evaluation){
         return ResponseEntity.ok(service.addEvaluation(evaluation));
+
     }
 }
