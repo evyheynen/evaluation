@@ -10,6 +10,7 @@ public class Evaluation {
     private Instructor instructor;
     private List<Question> questions;
     private List<Answer> answer;
+    private int id;
 
     public Evaluation() {
     }
@@ -19,6 +20,14 @@ public class Evaluation {
         this.instructor= instructor;
         this.questions = questions;
         this.answer = answer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Student getStudent() {

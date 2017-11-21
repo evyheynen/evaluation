@@ -4,5 +4,7 @@ import be.oak3.evaluation.model.Evaluation;
 
 public interface EvaluationRepository {
     int addEvaluation(Evaluation evaluation);
+    int updateEvaluation(Evaluation evaluation);
+    int deleteEvaluation(Evaluation evaluation);
 
 }
