@@ -1,8 +1,12 @@
 package be.oak3.evaluation.repository;
 
 import be.oak3.evaluation.model.Evaluation;
+import be.oak3.evaluation.model.Instructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class EvaluationRepositoryImpl implements EvaluationRepository {
@@ -28,5 +32,11 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     @Override
     public int deleteEvaluation(Evaluation evaluation) {
         return 0;
+    }
+
+    @Override
+    @Query
+    public List<Instructor> findByInstructor(Instructor instructor) {
+        return repository.findByInstructor(instructor);
     }
 }
