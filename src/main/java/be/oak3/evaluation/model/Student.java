@@ -12,6 +12,7 @@ public class Student extends Person {
     public Student(int id, String name, String company, String email) {
         super(id, name, company);
         this.email = email;
+
     }
 
     public String getEmail() {
