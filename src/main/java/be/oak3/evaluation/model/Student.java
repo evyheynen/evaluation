@@ -9,9 +9,9 @@ public class Student extends Person {
     public Student() {
     }
 
-    public Student(int id, String name, String company, String email1) {
+    public Student(int id, String name, String company, String email) {
         super(id, name, company);
-        this.email = email1;
+        this.email = email;
     }
 
     public String getEmail() {
