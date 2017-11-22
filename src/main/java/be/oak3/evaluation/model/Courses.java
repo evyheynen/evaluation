@@ -2,11 +2,12 @@ package be.oak3.evaluation.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity(name="courses")
+@Entity(name = "courses")
 public class Courses {
-//
+    //
     @Id
     @GeneratedValue
     private int id;
@@ -14,7 +15,9 @@ public class Courses {
     @NotNull
     private String name;
 
-    //private Set<Courses> courses;
+    @OneToMany
+    @JoinColumn(name="course_id")
+    private List<Evaluation> evaluations = new ArrayList<>();
 
     public Courses() {
     }
@@ -40,15 +43,6 @@ public class Courses {
         this.name = name;
     }
 
-//    public Set<Courses> getCourses() {
-//        return courses;
-//    }
-//
-//    @ManyToMany(mappedBy = "courses")
-//
-//    public void setCourses(Set<Courses> courses) {
-//        this.courses = courses;
-//    }
 
     @Override
     public String toString() {
