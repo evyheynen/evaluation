@@ -10,5 +10,4 @@ public interface EvaluationService {
     int updateEvaluation(Evaluation evaluation);
 
     void deleteEvaluation(Evaluation evaluation);
-
 }

@@ -15,12 +15,12 @@ public class EvaluationController {
     private EvaluationService service;
 
     @Autowired
-    public EvaluationController(EvaluationService service){
+    public EvaluationController(EvaluationService service) {
         this.service = service;
     }
 
-    @RequestMapping (method= RequestMethod.POST)
-    public ResponseEntity addEvaluation(Evaluation evaluation){
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity addEvaluation(Evaluation evaluation) {
         return ResponseEntity.ok(service.addEvaluation(evaluation));
 
     }

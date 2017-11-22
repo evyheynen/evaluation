@@ -1,12 +1,13 @@
 package be.oak3.evaluation.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
 
-@Entity(name="courses")
+@Entity(name = "courses")
 public class Courses {
-//
+    //
     @Id
     @GeneratedValue
     private int id;
