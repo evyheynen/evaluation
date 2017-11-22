@@ -1,25 +1,34 @@
 package be.oak3.evaluation.model;
 
 import javax.persistence.Entity;
-import java.util.List;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name="evaluation")
 public class Evaluation {
 
-    private Student student;
-    private Instructor instructor;
-    private List<Question> questions;
-    private List<Answer> answer;
+    @Id
+    @GeneratedValue
     private int id;
+
+    @NotNull
+    private int course;
+
+    @NotNull
+    private int instructor;
+
+    @NotNull
+    private int student;
+
 
     public Evaluation() {
     }
 
-    public Evaluation(Student student, Instructor instructor, List<Question> questions, List<Answer> answer) {
+    public Evaluation(int student, int instructor, int course) {
         this.student = student;
-        this.instructor= instructor;
-        this.questions = questions;
-        this.answer = answer;
+        this.instructor = instructor;
+        this.course = course;
     }
 
     public int getId() {
@@ -30,36 +39,28 @@ public class Evaluation {
         this.id = id;
     }
 
-    public Student getStudent() {
-        return student;
+    public int getCourse() {
+        return course;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setCourse(int course) {
+        this.course = course;
     }
 
-    public Instructor getInstructor() {
+    public int getInstructor() {
         return instructor;
     }
 
-    public void setInstructor(Instructor instructor) {
-        this.instructor= instructor;
+    public void setInstructor(int instructor) {
+        this.instructor = instructor;
     }
 
-    public List<Question> getQuestions() {
-        return questions;
+    public int getStudent() {
+        return student;
     }
 
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
-
-    public List<Answer> getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(List<Answer> answer) {
-        this.answer = answer;
+    public void setStudent(int student) {
+        this.student = student;
     }
 
     @Override
@@ -67,8 +68,6 @@ public class Evaluation {
         return "Evaluation{" +
                 "student=" + student +
                 ", instructor" + instructor+
-                ", questions=" + questions +
-                ", answer=" + answer +
                 '}';
     }
 }
