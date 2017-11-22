@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-@Entity(name="questions")
+@Entity(name = "questions")
 public class Question {
 
     @Id

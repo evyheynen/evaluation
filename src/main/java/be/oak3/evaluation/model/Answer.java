@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-@Entity(name="answers")
+@Entity(name = "answers")
 public class Answer {
 
     @Id
@@ -18,15 +18,12 @@ public class Answer {
     @NotNull
     private String answer;
 
-
-
     public Answer() {
     }
 
     public Answer(int id, String answer) {
         this.id = id;
         this.answer = answer;
-
     }
 
     public int getId() {

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class EvaluationServiceImpl implements EvaluationService {
 
-
     private final EvaluationRepository repository;
 
     @Autowired

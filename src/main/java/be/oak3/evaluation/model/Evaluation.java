@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-@Entity(name="evaluation")
+@Entity(name = "evaluation")
 public class Evaluation {
 
     @Id
@@ -20,8 +20,6 @@ public class Evaluation {
 
     @NotNull
     private int student;
-
-
 
 
     public Evaluation() {
@@ -69,7 +67,7 @@ public class Evaluation {
     public String toString() {
         return "Evaluation{" +
                 "student=" + student +
-                ", instructor" + instructor+
+                ", instructor" + instructor +
                 '}';
     }
 }
