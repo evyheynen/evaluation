@@ -26,6 +26,11 @@ public class EvaluationController {
         return ResponseEntity.ok(service.findAll());
     }
 
+    @GetMapping("/instructors")
+    public ResponseEntity findAllInstructors(){
+        return ResponseEntity.ok(service.findAllInstructors());
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity addEvaluation(Evaluation evaluation) {
         return ResponseEntity.ok(service.addEvaluation(evaluation));

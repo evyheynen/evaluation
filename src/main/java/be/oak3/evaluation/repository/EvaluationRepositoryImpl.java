@@ -15,10 +15,12 @@ import java.util.List;
 public class EvaluationRepositoryImpl implements EvaluationRepository {
 
     private final EvaluationJpaRepository repository;
+    private final InstructorJpaRepository repositoryInstructors;
 
     @Autowired
-    public EvaluationRepositoryImpl(EvaluationJpaRepository repository) {
+    public EvaluationRepositoryImpl(EvaluationJpaRepository repository, InstructorJpaRepository repositoryInstructors) {
         this.repository = repository;
+        this.repositoryInstructors = repositoryInstructors;
     }
 
     @Override
@@ -28,25 +30,22 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     }
 
     @Override
-    public int updateEvaluation(Evaluation evaluation) {
-        return 0;
-    }
-
-    @Override
-    public int deleteEvaluation(Evaluation evaluation) {
-        return 0;
-    }
-
-    @Override
     public List<Evaluation> findAll() {
         return repository.findAll();
     }
 
+    @Override
+    public List<Instructor> findAllInstructors() {
+        return repositoryInstructors.findAllInstructors();
+    }
+
 //    @Override
-//    @Query
-//    public List<Instructor> findByInstructor() {
+//    public int updateEvaluation(Evaluation evaluation) {
+//        return 0;
+//    }
 //
-//
-//        return repository.findByInstructor();
+//    @Override
+//    public int deleteEvaluation(Evaluation evaluation) {
+//        return 0;
 //    }
 }
