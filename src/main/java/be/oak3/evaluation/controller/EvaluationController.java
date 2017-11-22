@@ -31,9 +31,18 @@ public class EvaluationController {
         return ResponseEntity.ok(service.findAllInstructors());
     }
 
+    @GetMapping("/courses")
+    public ResponseEntity findAllCourses(){
+        return ResponseEntity.ok(service.findAllCourses());
+    }
+
+    @GetMapping("/questions")
+    public ResponseEntity findAllQuestions(){
+        return ResponseEntity.ok(service.findAllQuestions());
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity addEvaluation(Evaluation evaluation) {
         return ResponseEntity.ok(service.addEvaluation(evaluation));
-
     }
 }
