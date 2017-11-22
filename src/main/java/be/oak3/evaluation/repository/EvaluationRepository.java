@@ -11,7 +11,7 @@ public interface EvaluationRepository {
     int updateEvaluation(Evaluation evaluation);
     int deleteEvaluation(Evaluation evaluation);
 
-    List<Instructor> findByInstructor(Instructor instructor);
+    List<Instructor> findByInstructor();
     List<Question> findByQuestion(Question question);
 
 }
