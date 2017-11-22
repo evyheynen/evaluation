@@ -1,10 +1,9 @@
 package be.oak3.evaluation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name="student")
 public class Student{
@@ -18,6 +17,9 @@ public class Student{
     private String company;
     @NotNull
     private String email;
+
+    @OneToMany(mappedBy = "evaluation")
+    private List<Evaluation> evaluations = new ArrayList<>();
 
     public Student() {
     }

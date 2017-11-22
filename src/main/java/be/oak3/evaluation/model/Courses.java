@@ -14,7 +14,8 @@ public class Courses {
     @NotNull
     private String name;
 
-    //private Set<Courses> courses;
+//    @ManyToMany(mappedBy = "courses")
+//    private Set<Instructor> instructors;
 
     public Courses() {
     }
@@ -40,15 +41,6 @@ public class Courses {
         this.name = name;
     }
 
-//    public Set<Courses> getCourses() {
-//        return courses;
-//    }
-//
-//    @ManyToMany(mappedBy = "courses")
-//
-//    public void setCourses(Set<Courses> courses) {
-//        this.courses = courses;
-//    }
 
     @Override
     public String toString() {
