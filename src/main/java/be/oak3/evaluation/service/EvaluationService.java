@@ -1,9 +1,6 @@
 package be.oak3.evaluation.service;
 
-import be.oak3.evaluation.model.Courses;
-import be.oak3.evaluation.model.Evaluation;
-import be.oak3.evaluation.model.Instructor;
-import be.oak3.evaluation.model.Question;
+import be.oak3.evaluation.model.*;
 
 import java.util.List;
 
@@ -14,6 +11,7 @@ public interface EvaluationService {
     List<Instructor> findAllInstructors();
     List<Courses> findAllCourses();
     List<Question> findAllQuestions();
+    List<Student> findAllStudents();
 
     int addEvaluation(Evaluation evaluation);
 

@@ -1,9 +1,6 @@
 package be.oak3.evaluation.service;
 
-import be.oak3.evaluation.model.Courses;
-import be.oak3.evaluation.model.Evaluation;
-import be.oak3.evaluation.model.Instructor;
-import be.oak3.evaluation.model.Question;
+import be.oak3.evaluation.model.*;
 import be.oak3.evaluation.repository.EvaluationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +35,11 @@ public class EvaluationServiceImpl implements EvaluationService {
     @Override
     public List<Question> findAllQuestions() {
         return repository.findAllQuestions();
+    }
+
+    @Override
+    public List<Student> findAllStudents() {
+        return repository.findAllStudents();
     }
 
 

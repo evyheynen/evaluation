@@ -1,9 +1,6 @@
 package be.oak3.evaluation.repository;
 
-import be.oak3.evaluation.model.Courses;
-import be.oak3.evaluation.model.Evaluation;
-import be.oak3.evaluation.model.Instructor;
-import be.oak3.evaluation.model.Question;
+import be.oak3.evaluation.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,13 +17,17 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     private final InstructorJpaRepository repositoryInstructors;
     private final CourseJpaRepository repositoryCourses;
     private final QuestionJpaRepository repositoryQuestions;
+    private final StudentJpaRepository repositoryStudent;
 
     @Autowired
-    public EvaluationRepositoryImpl(EvaluationJpaRepository repository, InstructorJpaRepository repositoryInstructors, CourseJpaRepository repositoryCourses, QuestionJpaRepository repositoryQuestions) {
+    public EvaluationRepositoryImpl(EvaluationJpaRepository repository, InstructorJpaRepository repositoryInstructors,
+                                    CourseJpaRepository repositoryCourses, QuestionJpaRepository repositoryQuestions,
+                                    StudentJpaRepository repositoryStudent) {
         this.repository = repository;
         this.repositoryInstructors = repositoryInstructors;
         this.repositoryCourses = repositoryCourses;
         this.repositoryQuestions = repositoryQuestions;
+        this.repositoryStudent = repositoryStudent;
     }
 
     @Override
@@ -53,6 +54,11 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     @Override
     public List<Question> findAllQuestions(){
         return repositoryQuestions.findAllQuestions();
+    }
+
+    @Override
+    public List<Student> findAllStudents() {
+        return repositoryStudent.findAllStudents();
     }
 
 

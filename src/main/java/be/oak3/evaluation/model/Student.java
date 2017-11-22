@@ -13,14 +13,13 @@ public class Student {
     private int id;
     @NotNull
     private String name;
-    @NotNull
     private String company;
     @NotNull
     private String email;
 
     @OneToMany
     @JoinColumn(name="student_id")
-    private List<Evaluation> evaluations;
+    private List<Evaluation> evaluations = new ArrayList<>();
 
     public Student() {
     }
