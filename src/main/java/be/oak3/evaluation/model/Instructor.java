@@ -1,12 +1,10 @@
 package be.oak3.evaluation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
-@Entity(name = "instructor")
+@Entity(name="instructor")
 public class Instructor {
 
     @Id

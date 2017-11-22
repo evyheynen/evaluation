@@ -21,7 +21,6 @@ public class Evaluation {
     @NotNull
     private int student;
 
-
     public Evaluation() {
     }
 
