@@ -2,7 +2,6 @@ package be.oak3.evaluation.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "courses")
@@ -17,7 +16,7 @@ public class Courses {
 
     @OneToMany
     @JoinColumn(name="course_id")
-    private List<Evaluation> evaluations = new ArrayList<>();
+    private List<Evaluation> evaluations;
 
     public Courses() {
     }

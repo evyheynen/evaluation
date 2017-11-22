@@ -1,12 +1,10 @@
 package be.oak3.evaluation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
-@Entity(name="questions")
+@Entity(name = "questions")
 public class Question {
 
     @Id
@@ -14,6 +12,10 @@ public class Question {
     private int id;
     @NotNull
     private String question;
+
+    @OneToMany
+    @JoinColumn(name="question_id")
+    private List<Answer> answers;
 
     public Question() {
     }

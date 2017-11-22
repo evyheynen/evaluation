@@ -1,13 +1,12 @@
 package be.oak3.evaluation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity(name="student")
-public class Student{
+@Entity(name = "student")
+public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,51 +18,47 @@ public class Student{
     @NotNull
     private String email;
 
+    @OneToMany
+    @JoinColumn(name="student_id")
+    private List<Evaluation> evaluations;
+
     public Student() {
     }
 
     public Student(int id, String name, String company, String email) {
-       this.id = id;
-       this.name = name;
-       this.company = company;
+        this.id = id;
+        this.name = name;
+        this.company = company;
         this.email = email;
     }
 
     public String getEmail() {
         return email;
-
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-
-
     public int getId() {
         return id;
     }
-
 
     public void setId(int id) {
         this.id = id;
     }
 
-
     public String getName() {
         return name;
     }
-
 
     public void setName(String name) {
         this.name = name;
     }
 
-
     public String getCompany() {
         return company;
     }
-
 
     public void setCompany(String company) {
         this.company = company;

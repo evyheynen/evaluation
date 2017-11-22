@@ -6,18 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 @Repository
 public class EvaluationRepositoryImpl implements EvaluationRepository {
 
     private final EvaluationJpaRepository repository;
+    private final InstructorJpaRepository repositoryInstructors;
 
     @Autowired
-    public EvaluationRepositoryImpl(EvaluationJpaRepository repository) {
+    public EvaluationRepositoryImpl(EvaluationJpaRepository repository, InstructorJpaRepository repositoryInstructors) {
         this.repository = repository;
+        this.repositoryInstructors = repositoryInstructors;
     }
 
     @Override
@@ -27,18 +30,22 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     }
 
     @Override
-    public int updateEvaluation(Evaluation evaluation) {
-        return 0;
+    public List<Evaluation> findAll() {
+        return repository.findAll();
     }
 
     @Override
-    public int deleteEvaluation(Evaluation evaluation) {
-        return 0;
+    public List<Instructor> findAllInstructors() {
+        return repositoryInstructors.findAllInstructors();
     }
 
-    @Override
-    @Query
-    public List<Instructor> findByInstructor() {
-        return repository.findByInstructor();
-    }
+//    @Override
+//    public int updateEvaluation(Evaluation evaluation) {
+//        return 0;
+//    }
+//
+//    @Override
+//    public int deleteEvaluation(Evaluation evaluation) {
+//        return 0;
+//    }
 }

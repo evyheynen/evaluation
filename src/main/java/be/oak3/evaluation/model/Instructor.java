@@ -2,6 +2,7 @@ package be.oak3.evaluation.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name="instructor")
@@ -15,7 +16,13 @@ public class Instructor {
     @NotNull
     private String company;
 
-    //private Set<Instructor> instructors;
+    @ManyToMany
+    //@JoinTable(name = "courses_instructor", joinColumns = @JoinColumn(name = "courses_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "instructor_id", referencedColumnName = "id"))
+    private Set<Courses> courses;
+
+    @OneToMany
+    @JoinColumn(name="instructor_id")
+    private List<Evaluation> evaluations;
 
     public Instructor(int id, String name, String company) {
         this.id = id;
@@ -26,9 +33,6 @@ public class Instructor {
     public Instructor() {
     }
 
-//    public Set<Instructor> getInstructors() {
-//        return instructors;
-//    }
 
     public int getId() {
         return id;
@@ -54,9 +58,4 @@ public class Instructor {
         this.company = company;
     }
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "courses_instructor", joinColumns = @JoinColumn(name = "courses_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "instructor_id", referencedColumnName = "id"))
-//    public void setInstructors(Set<Instructor> instructors) {
-//        this.instructors = instructors;
-//    }
 }

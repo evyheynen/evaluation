@@ -3,7 +3,6 @@ package be.oak3.evaluation.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "evaluation")
@@ -13,7 +12,7 @@ public class Evaluation {
     @GeneratedValue
     private int id;
 
-    //@NotNull
+    @NotNull
     private LocalDateTime date;
 
     @NotNull
@@ -28,7 +27,7 @@ public class Evaluation {
 
     @OneToMany
     @JoinColumn(name="evaluation_id")
-    private List<Answer> answers = new ArrayList<>();
+    private List<Answer> answers;
 
     public Evaluation() {
     }

@@ -6,10 +6,12 @@ import be.oak3.evaluation.model.Instructor;
 import java.util.List;
 
 public interface EvaluationRepository {
+
     int addEvaluation(Evaluation evaluation);
-    int updateEvaluation(Evaluation evaluation);
-    int deleteEvaluation(Evaluation evaluation);
 
-    List<Instructor> findByInstructor();
+    List<Evaluation> findAll();
+    List<Instructor> findAllInstructors();
 
+    //    int updateEvaluation(Evaluation evaluation);
+    //    int deleteEvaluation(Evaluation evaluation);
 }
