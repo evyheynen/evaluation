@@ -1,9 +1,8 @@
 package be.oak3.evaluation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity(name = "answers")
 public class Answer {
@@ -17,6 +16,7 @@ public class Answer {
     private int evaluation_id;
     @NotNull
     private String answer;
+
 
     public Answer() {
     }

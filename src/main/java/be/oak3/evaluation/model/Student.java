@@ -18,8 +18,9 @@ public class Student {
     @NotNull
     private String email;
 
-    @OneToMany(mappedBy = "evaluation")
-    private List<Evaluation> evaluations = new ArrayList<>();
+    @OneToMany
+    @JoinColumn(name="student_id")
+    private List<Evaluation> evaluations;
 
     public Student() {
     }

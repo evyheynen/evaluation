@@ -1,9 +1,8 @@
 package be.oak3.evaluation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity(name = "courses")
 public class Courses {
@@ -15,8 +14,9 @@ public class Courses {
     @NotNull
     private String name;
 
-//    @ManyToMany(mappedBy = "courses")
-//    private Set<Instructor> instructors;
+    @OneToMany
+    @JoinColumn(name="course_id")
+    private List<Evaluation> evaluations;
 
     public Courses() {
     }

@@ -2,6 +2,7 @@ package be.oak3.evaluation.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name="instructor")
@@ -18,6 +19,10 @@ public class Instructor {
     @ManyToMany
     //@JoinTable(name = "courses_instructor", joinColumns = @JoinColumn(name = "courses_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "instructor_id", referencedColumnName = "id"))
     private Set<Courses> courses;
+
+    @OneToMany
+    @JoinColumn(name="instructor_id")
+    private List<Evaluation> evaluations;
 
     public Instructor(int id, String name, String company) {
         this.id = id;
