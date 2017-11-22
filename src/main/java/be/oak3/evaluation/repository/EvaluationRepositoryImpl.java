@@ -38,10 +38,15 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     }
 
     @Override
-    @Query
-    public List<Instructor> findByInstructor() {
-
-
-        return repository.findByInstructor();
+    public List<Evaluation> findAll() {
+        return repository.findAll();
     }
+
+//    @Override
+//    @Query
+//    public List<Instructor> findByInstructor() {
+//
+//
+//        return repository.findByInstructor();
+//    }
 }

@@ -13,6 +13,7 @@ public interface EvaluationRepository {
 
     int deleteEvaluation(Evaluation evaluation);
 
-    List<Instructor> findByInstructor();
+    List<Evaluation> findAll();
+//    List<Instructor> findAllInstructors();
 
 }

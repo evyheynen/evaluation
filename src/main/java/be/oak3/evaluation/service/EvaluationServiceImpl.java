@@ -5,6 +5,8 @@ import be.oak3.evaluation.repository.EvaluationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EvaluationServiceImpl implements EvaluationService {
 
@@ -13,6 +15,11 @@ public class EvaluationServiceImpl implements EvaluationService {
     @Autowired
     public EvaluationServiceImpl(EvaluationRepository repository) {
         this.repository = repository;
+    }
+
+    @Override
+    public List<Evaluation> findAll(){
+        return repository.findAll();
     }
 
     @Override

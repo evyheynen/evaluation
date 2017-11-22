@@ -9,7 +9,4 @@ import java.util.List;
 
 public interface EvaluationJpaRepository extends JpaRepository<Evaluation, Integer> {
 
-    @Query(value = "select '*' from instructor")
-    List<Instructor> findByInstructor();
-
 }
