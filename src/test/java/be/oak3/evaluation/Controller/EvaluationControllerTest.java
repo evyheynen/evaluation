@@ -23,11 +23,11 @@ public class EvaluationControllerTest {
         headers.setContentType(MediaType.APPLICATION_JSON);
     }
 
-    @Ignore
+
     @Test
     public void testAddEvaluation() {
 
-        String jsonEvaluation = "{\"date\": 1484175600000,\"course_id\": 2,\"instructor_id\": 1,\"student_id\": 1}";
+        String jsonEvaluation = "{\"date\": 1484175600000,\"course_id\": 1,\"instructor_id\": 1,\"student_id\": 1}";
 
         HttpEntity<String> data = new HttpEntity<>(jsonEvaluation, headers);
 

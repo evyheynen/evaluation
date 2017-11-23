@@ -48,8 +48,15 @@ public class EvaluationServiceImpl implements EvaluationService {
         return repository.addEvaluation(evaluation);
     }
 
+    @Override
+    public int addStudent(Student student) {
+        return repository.addStudent(student);
+    }
 
-
+    @Override
+    public int addAnswer(Answer answer) {
+        return repository.addAnswer(answer);
+}
 
 //    @Override
 //    public int updateEvaluation(Evaluation evaluation) {

@@ -12,7 +12,6 @@ public class Evaluation {
     @GeneratedValue
     private int id;
 
-    @NotNull
     @Column(name = "date", columnDefinition="DATETIME")
     private Date date;
 

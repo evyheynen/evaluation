@@ -15,22 +15,36 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     private final CourseJpaRepository repositoryCourses;
     private final QuestionJpaRepository repositoryQuestions;
     private final StudentJpaRepository repositoryStudent;
+    private final AnswerJpaRepository repositoryAnswer;
 
     @Autowired
     public EvaluationRepositoryImpl(EvaluationJpaRepository repository, InstructorJpaRepository repositoryInstructors,
                                     CourseJpaRepository repositoryCourses, QuestionJpaRepository repositoryQuestions,
-                                    StudentJpaRepository repositoryStudent) {
+                                    StudentJpaRepository repositoryStudent, AnswerJpaRepository repositoryAnswer) {
         this.repository = repository;
         this.repositoryInstructors = repositoryInstructors;
         this.repositoryCourses = repositoryCourses;
         this.repositoryQuestions = repositoryQuestions;
         this.repositoryStudent = repositoryStudent;
+        this.repositoryAnswer = repositoryAnswer;
     }
 
     @Override
     public int addEvaluation(Evaluation evaluation) {
         Evaluation e = repository.saveAndFlush(evaluation);
         return e != null ? 1 : 0;
+    }
+
+    @Override
+    public int addStudent(Student student) {
+       Student student1=repositoryStudent.saveAndFlush(student);
+        return student1!=null?1:0;
+    }
+
+    @Override
+    public int addAnswer(Answer answer){
+        Answer answer1=repositoryAnswer.saveAndFlush(answer);
+        return answer1 !=null?1:0;
     }
 
     @Override

@@ -7,6 +7,8 @@ import java.util.List;
 public interface EvaluationRepository {
 
     int addEvaluation(Evaluation evaluation);
+    int addStudent(Student student);
+    int addAnswer (Answer answer);
 
     List<Evaluation> findAll();
     List<Instructor> findAllInstructors();

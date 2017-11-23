@@ -1,8 +1,12 @@
 package be.oak3.evaluation.controller;
 
+import be.oak3.evaluation.model.Answer;
 import be.oak3.evaluation.model.Evaluation;
+
+import be.oak3.evaluation.model.Student;
 import be.oak3.evaluation.service.EvaluationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,5 +49,15 @@ public class EvaluationController {
     @PostMapping
     public ResponseEntity addEvaluation(@RequestBody Evaluation evaluation) {
         return ResponseEntity.ok(service.addEvaluation(evaluation));
+    }
+
+    @PostMapping("/addStudent")
+    public ResponseEntity addStudent(@RequestBody Student student){
+    return ResponseEntity.ok(service.addStudent(student));
+    }
+
+    @PostMapping("/addAnswer")
+    public ResponseEntity addAnswer(@RequestBody Answer answer){
+        return ResponseEntity.ok(service.addAnswer(answer));
     }
 }

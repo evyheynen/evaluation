@@ -27,8 +27,7 @@ public class Instructor {
     @JoinColumn(name="instructor_id", referencedColumnName = "id")
     private List<Evaluation> evaluation;
 
-    public Instructor(int id, String name, String company) {
-        this.id = id;
+    public Instructor(String name, String company) {
         this.name = name;
         this.company = company;
     }

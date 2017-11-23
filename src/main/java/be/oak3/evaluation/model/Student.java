@@ -27,8 +27,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(int id, String name, String company, String email) {
-        this.id = id;
+    public Student(String name, String company, String email) {
         this.name = name;
         this.company = company;
         this.email = email;

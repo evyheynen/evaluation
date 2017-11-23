@@ -14,7 +14,8 @@ public interface EvaluationService {
     List<Student> findAllStudents();
 
     int addEvaluation(Evaluation evaluation);
-
+    int addStudent(Student student);
+    int addAnswer( Answer answer);
 
 //    int updateEvaluation(Evaluation evaluation);
 //    void deleteEvaluation(Evaluation evaluation);

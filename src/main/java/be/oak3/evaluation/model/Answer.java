@@ -20,9 +20,10 @@ public class Answer {
     public Answer() {
     }
 
-    public Answer(int id, String answer) {
-        this.id = id;
+    public Answer(String answer, int question_id, int evaluation_id) {
         this.answer = answer;
+        this.question_id= question_id;
+        this.evaluation_id=evaluation_id;
     }
 
     public int getId() {
