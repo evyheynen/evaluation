@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface QuestionJpaRepository extends JpaRepository<Question,Integer> {
 
-    @Query("select id, question from questions")
-    List<Question> findAllQuestions();
 }

@@ -54,22 +54,22 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
 
     @Override
     public List<Instructor> findAllInstructors() {
-        return repositoryInstructors.findAllInstructors();
+        return repositoryInstructors.findAll();
     }
 
     @Override
     public List<Courses> findAllCourses(){
-        return repositoryCourses.findAllCourses();
+        return repositoryCourses.findAll();
     }
 
     @Override
     public List<Question> findAllQuestions(){
-        return repositoryQuestions.findAllQuestions();
+        return repositoryQuestions.findAll();
     }
 
     @Override
     public List<Student> findAllStudents() {
-        return repositoryStudent.findAllStudents();
+        return repositoryStudent.findAll();
     }
 
 

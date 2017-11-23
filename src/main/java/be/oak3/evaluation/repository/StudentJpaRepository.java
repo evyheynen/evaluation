@@ -9,7 +9,5 @@ import java.util.List;
 
 public interface StudentJpaRepository extends JpaRepository<Student,Integer> {
 
-        @Query("select id, name, email from student")
-        List<Student> findAllStudents();
     }
 

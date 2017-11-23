@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface InstructorJpaRepository extends JpaRepository<Instructor,Integer>{
 
-    @Query(value = "select id, name, company from instructor")
-    List<Instructor> findAllInstructors();
+
 
 }
