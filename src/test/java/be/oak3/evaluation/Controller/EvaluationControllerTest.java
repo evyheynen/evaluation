@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,7 +85,8 @@ public class EvaluationControllerTest {
             javaEvaluation.setCourse_id(jsonEvaluation.getInt("course_id"));
             javaEvaluation.setInstructor_id(jsonEvaluation.getInt("instructor_id"));
             javaEvaluation.setStudent_id(jsonEvaluation.getInt("student_id"));
-//            javaEvaluation.setDate(jsonEvaluation.getDate("date"));
+//          javaEvaluation.setDate(jsonEvaluation.getDate("date"));
+//          javaEvaluation.setDate(Date.valueOf(jsonObject.getString("date")));
 
             allEvaluations.add(javaEvaluation);
 
