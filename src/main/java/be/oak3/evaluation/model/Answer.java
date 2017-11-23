@@ -2,7 +2,6 @@ package be.oak3.evaluation.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity(name = "answers")
 public class Answer {

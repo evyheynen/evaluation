@@ -27,8 +27,7 @@ public class EvaluationControllerTest {
     @Test
     public void testAddEvaluation() {
 
-        String jsonEvaluation = "{\"title\": \"Ow yeah\",\"publisher\": \"tom\",\"author\": \"Aaron\",\"pages\": 158,\"ebook\": false," +
-                "\"subject\": \"ME\",\"language\": \"DUTCH\",\"genre\": \"ROMAN\",\"isbn\": \"123\"}";
+        String jsonEvaluation = "{\"date\": 1484175600000,\"course_id\": 2,\"instructor_id\": 1,\"student_id\": 1}";
 
         HttpEntity<String> data = new HttpEntity<>(jsonEvaluation, headers);
 

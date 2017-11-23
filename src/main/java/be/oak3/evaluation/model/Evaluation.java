@@ -2,18 +2,17 @@ package be.oak3.evaluation.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
-@Entity(name = "evaluation")
+@Entity
 public class Evaluation {
 
     @Id
     @GeneratedValue
     private int id;
 
-    //@NotNull
+    @NotNull
     @Column(name = "date", columnDefinition="DATETIME")
     private Date date;
 
@@ -36,6 +35,7 @@ public class Evaluation {
     public Evaluation(Date date, int course_id, int instructor_id, int student_id) {
         this.date = date;
         this.course_id = course_id;
+        System.out.println(course_id);
         this.instructor_id = instructor_id;
         this.student_id = student_id;
     }

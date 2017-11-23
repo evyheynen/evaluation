@@ -1,9 +1,11 @@
 package be.oak3.evaluation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
+
 
 @Entity(name = "student")
 public class Student {
@@ -17,9 +19,10 @@ public class Student {
     @NotNull
     private String email;
 
-    @OneToMany
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name="student_id")
-    private List<Evaluation> evaluations = new ArrayList<>();
+    private List<Evaluation> evaluations;
 
     public Student() {
     }

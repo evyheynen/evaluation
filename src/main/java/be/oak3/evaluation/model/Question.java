@@ -13,6 +13,9 @@ public class Question {
     @NotNull
     private String question;
 
+    @NotNull
+    private String type;
+
     @OneToMany
     @JoinColumn(name="question_id")
     private List<Answer> answers;
