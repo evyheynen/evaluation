@@ -18,6 +18,10 @@ public class Courses {
     @JoinColumn(name="course_id")
     private List<Evaluation> evaluations;
 
+    @OneToMany
+    @JoinColumn(name="course_id")
+    private List<Newsletter> newsletters;
+
     public Courses() {
     }
 
