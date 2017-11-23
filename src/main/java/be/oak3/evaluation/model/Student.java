@@ -24,6 +24,10 @@ public class Student {
     @JoinColumn(name="student_id")
     private List<Evaluation> evaluations;
 
+    @OneToMany
+    @JoinColumn(name="student_id")
+    private List<Newsletter> newsletters;
+
     public Student() {
     }
 
