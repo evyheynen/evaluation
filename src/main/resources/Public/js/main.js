@@ -1,17 +1,18 @@
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
 
 
 let URL = "http://localhost:8080/evaluation";
+let nrQuestions = 1;
 
 function getCourseInfo(url){
     let courses = url + "/courses";
 
-    console.log(url);
+    //console.log(url);
 
     $.get(courses, function (response, status) {
-        console.log(status);
+        //console.log(status);
         if(status === "success"){
             let course_info = `
                     
@@ -19,7 +20,7 @@ function getCourseInfo(url){
                             <select name="course" id="course">`;
 
             response.forEach(function (el) {
-                console.log("courses loading " + el);
+                //console.log("courses loading " + el);
                 course_info += `
                                 <option value="${el.id}">${el.name}</option>
                             `;
@@ -40,7 +41,7 @@ function getCourseInfo(url){
     let instructors = url + "/instructors";
 
     $.get(instructors, function (response, status) {
-        console.log(status);
+        //console.log(status);
         if(status === "success"){
             let course_info = `
                     
@@ -72,7 +73,7 @@ function getQuestions(url){
     let instructors = url + "/questions";
 
     $.get(instructors, function (response, status) {
-        console.log(status);
+        //console.log(status);
         if(status === "success"){
             let q = `
                     <div class="col-md-6">
@@ -80,11 +81,29 @@ function getQuestions(url){
                             `;
 
             response.forEach(function (el) {
-                q += `
+
+                //console.log(el.type);
+                if(el.type == "open"){
+                    q += `
+                
                 <p>${el.question}</p>
-                <input type="text" name="" id="${el.id}" class="form-control" placeholder="" aria-describedby="helpId"><br>
-                                
+                <input type="text" name="" id="${el.id}" class="form-control"><br>
                             `;
+                }
+
+                if(el.type === "scale"){
+                    q += `
+                        <p>${el.question}</p>
+                            <input type="radio" name="newsletter" value="1"> 1
+                            <input type="radio" name="newsletter" value="2"> 2
+                            <input type="radio" name="newsletter" value="3" checked> 3
+                            <input type="radio" name="newsletter" value="4"> 4
+                            <input type="radio" name="newsletter" value="5"> 5
+                    `
+                }
+
+                nrQuestions++;
+
             });
 
             q += `
@@ -115,10 +134,10 @@ function postAjax(object,url){
 function newsletter(url){
     let courses = url + "/courses";
 
-    console.log(url);
+    //console.log(url);
 
     $.get(courses, function (response, status) {
-        console.log(status);
+        //console.log(status);
         if(status === "success"){
             let course_info = `
                     <div class="col-md-6">
@@ -127,7 +146,7 @@ function newsletter(url){
                             
 
             response.forEach(function (el) {
-                console.log("courses loading " + el.name);
+                //console.log("courses loading " + el.name);
                 course_info += `
                     <input type="checkbox" id="${el.id}" name="newsletter" value="${el.name}">
                     <label for="newsletter">${el.name}</label>
@@ -152,22 +171,18 @@ function getStudents(url){
     let students = url + "/students";
     let i =1;
     $.get(students, function (response, status) {
-
-
-            response.forEach(function (el) {
-                i++;
-            });
+        return response[response.length];
     },"json");
 
-    console.log(i);
-    return i + 1;
+    //console.log("i: " +i);
+    return i;
 
 };
 
 getQuestions(URL);
 getCourseInfo(URL);
 newsletter(URL);
-getStudents(URL);
+//getStudents(URL);
 
 function createStudent(){
     let name = $('#name').val();
@@ -187,6 +202,8 @@ function createStudent(){
 $("#send").click(function(){
 
     createStudent();
+    console.log("test:"+ getStudents());
+
 
     //Evaluation object
     let date = new Date();
@@ -206,8 +223,13 @@ $("#send").click(function(){
     postAjax(evaluation, URL );
 
     //Answer object
-    let question_id = 1;
-    let evaluation_id;
+
+    let evaluation_id = $.get(URL, function(response){
+        //console.log(response);
+        return response;
+    },"json");
+
+    console.log("eva_id:" +evaluation_id);
 
 
 

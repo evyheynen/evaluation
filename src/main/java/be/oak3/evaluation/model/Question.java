@@ -44,6 +44,14 @@ public class Question {
         this.question = question;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Question{" +
