@@ -12,8 +12,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -83,8 +88,12 @@ public class EvaluationControllerTest {
             javaEvaluation.setCourse_id(jsonEvaluation.getInt("course_id"));
             javaEvaluation.setInstructor_id(jsonEvaluation.getInt("instructor_id"));
             javaEvaluation.setStudent_id(jsonEvaluation.getInt("student_id"));
-//          javaEvaluation.setDate(jsonEvaluation.getDate("date"));
-//          javaEvaluation.setDate(Date.valueOf(jsonObject.getString("date")));
+
+            String temp = jsonEvaluation.getString("date");
+            DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+            Date date;
+            date = format.parse(temp);
+            javaEvaluation.setDate(date);
 
             allEvaluations.add(javaEvaluation);
 
@@ -94,12 +103,14 @@ public class EvaluationControllerTest {
         assertThat(myEvaluation.getCourse_id()).isEqualTo(1);
         assertThat(myEvaluation.getInstructor_id()).isEqualTo(1);
         assertThat(myEvaluation.getStudent_id()).isEqualTo(1);
-        //assertThat(myEvaluation.getDate()).isEqualTo();
+
 
     } catch (JSONException e) {
         e.printStackTrace();
+    } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
-}
     @Test
     public void testFindAllInstructors(){
         ResponseEntity<List> responseEntity=template.getForEntity(URL,List.class);
