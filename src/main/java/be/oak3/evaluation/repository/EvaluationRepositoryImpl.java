@@ -17,6 +17,7 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     private final StudentJpaRepository repositoryStudent;
     private final AnswerJpaRepository repositoryAnswer;
 
+
     @Autowired
     public EvaluationRepositoryImpl(EvaluationJpaRepository repository, InstructorJpaRepository repositoryInstructors,
                                     CourseJpaRepository repositoryCourses, QuestionJpaRepository repositoryQuestions,
@@ -71,6 +72,13 @@ public class EvaluationRepositoryImpl implements EvaluationRepository {
     public List<Student> findAllStudents() {
         return repositoryStudent.findAll();
     }
+
+
+    @Override
+    public List<Answer> findAllAnswers() {
+        return repositoryAnswer.findAll();
+    }
+
 
 
 //    @Override

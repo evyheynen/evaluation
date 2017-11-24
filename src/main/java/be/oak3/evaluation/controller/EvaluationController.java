@@ -46,17 +46,22 @@ public class EvaluationController {
         return ResponseEntity.ok(service.findAllStudents());
     }
 
+    @GetMapping("/answers")
+    public ResponseEntity findAllAnswers(){
+        return ResponseEntity.ok(service.findAllAnswers());
+    }
+
     @PostMapping
     public ResponseEntity addEvaluation(@RequestBody Evaluation evaluation) {
         return ResponseEntity.ok(service.addEvaluation(evaluation));
     }
 
-    @PostMapping("/addStudent")
+    @PostMapping("/students")
     public ResponseEntity addStudent(@RequestBody Student student){
-    return ResponseEntity.ok(service.addStudent(student));
+        return ResponseEntity.ok(service.addStudent(student));
     }
 
-    @PostMapping("/addAnswer")
+    @PostMapping("/answers")
     public ResponseEntity addAnswer(@RequestBody Answer answer){
         return ResponseEntity.ok(service.addAnswer(answer));
     }

@@ -14,7 +14,7 @@ function getCourseInfo(url){
         console.log(status);
         if(status === "success"){
             let course_info = `
-                    <div class="col-md-6">
+                    
                         <label for="course">Course:</label>
                             <select name="course" id="course">`;
 
@@ -27,7 +27,7 @@ function getCourseInfo(url){
 
             course_info += `
                             </select><br>
-                    </div>
+                    
                 `;
 
             $("#course_info").html(course_info);
@@ -43,7 +43,7 @@ function getCourseInfo(url){
         console.log(status);
         if(status === "success"){
             let course_info = `
-                    <div class="col-md-6">
+                    
                         <label for="instructor">Instructors:</label>
                             <select name="instructor" id="instructor">`;
 
@@ -55,10 +55,10 @@ function getCourseInfo(url){
 
             course_info += `
                             </select><br>
-                    </div>
+                    
                 `;
 
-            $("#course_info").append(course_info);
+            $("#instructors").html(course_info);
 
 
         }
@@ -112,16 +112,87 @@ function postAjax(object,url){
     });
 }
 
+function newsletter(url){
+    let courses = url + "/courses";
+
+    console.log(url);
+
+    $.get(courses, function (response, status) {
+        console.log(status);
+        if(status === "success"){
+            let course_info = `
+                    <div class="col-md-6">
+                        <p>Would you like to be notified on any of the following courses?</p>`
+                        
+                            
+
+            response.forEach(function (el) {
+                console.log("courses loading " + el.name);
+                course_info += `
+                    <input type="checkbox" id="${el.id}" name="newsletter" value="${el.name}">
+                    <label for="newsletter">${el.name}</label>
+
+                            `;
+            });
+
+            course_info += `
+                            </select><br>
+                    </div>
+                `;
+
+            $("#newsletter").html(course_info);
+
+
+        }
+
+    },"json");
+}
+
+function getStudents(url){
+    let students = url + "/students";
+    let i =1;
+    $.get(students, function (response, status) {
+
+
+            response.forEach(function (el) {
+                i++;
+            });
+    },"json");
+
+    console.log(i);
+    return i + 1;
+
+};
+
 getQuestions(URL);
 getCourseInfo(URL);
+newsletter(URL);
+getStudents(URL);
+
+function createStudent(){
+    let name = $('#name').val();
+    let email = $('#email').val();
+
+    let student = {
+        name:name,
+        email: email
+    }
+
+    let studentURL = URL + "/students";
+
+    postAjax(student, studentURL );
+
+}
 
 $("#send").click(function(){
+
+    createStudent();
 
     //Evaluation object
     let date = new Date();
     let course = $('#course').val();
     let instructor = $("#instructor").val();
-    let student = 1;
+    let student = getStudents();
 
     let evaluation = {
         date:date,

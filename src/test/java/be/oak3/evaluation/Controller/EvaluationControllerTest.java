@@ -1,12 +1,10 @@
 package be.oak3.evaluation.Controller;
 
 import be.oak3.evaluation.model.*;
-import be.oak3.evaluation.repository.CourseJpaRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.http.*;
@@ -14,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +29,7 @@ public class EvaluationControllerTest {
     @Before
     public void init() {
         template = new RestTemplate();
+
         headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
     }
@@ -53,17 +51,17 @@ public class EvaluationControllerTest {
 
         HttpEntity<String> student = new HttpEntity<>(jsonStudent, headers);
 
-        ResponseEntity<Integer> response=template.postForEntity(URL, student, Integer.class);
+        ResponseEntity<Integer> response=template.postForEntity(URL + "/students", student, Integer.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isEqualTo(1);
     }
     @Test
     public void testAddAnswer() {
-        String jsonAnswer = "{\"answer\":5,\"question_id\":1,\"evaluation_id\":1}";
+        String jsonAnswer = "{\"answer\":\"test\",\"question_id\":1,\"evaluation_id\":1}";
 
         HttpEntity<String> data = new HttpEntity<>(jsonAnswer, headers);
 
-        ResponseEntity<Integer> response = template.postForEntity(URL, data, Integer.class);
+        ResponseEntity<Integer> response = template.postForEntity(URL + "/answers", data, Integer.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isEqualTo(1);
     }

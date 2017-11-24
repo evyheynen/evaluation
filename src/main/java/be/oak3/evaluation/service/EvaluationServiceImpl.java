@@ -42,6 +42,11 @@ public class EvaluationServiceImpl implements EvaluationService {
         return repository.findAllStudents();
     }
 
+    @Override
+    public List<Answer> findAllAnswers() {
+        return repository.findAllAnswers();
+    }
+
 
     @Override
     public int addEvaluation(Evaluation evaluation) {

@@ -12,6 +12,7 @@ public interface EvaluationService {
     List<Courses> findAllCourses();
     List<Question> findAllQuestions();
     List<Student> findAllStudents();
+    List<Answer> findAllAnswers();
 
     int addEvaluation(Evaluation evaluation);
     int addStudent(Student student);

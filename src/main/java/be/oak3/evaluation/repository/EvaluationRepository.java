@@ -15,6 +15,7 @@ public interface EvaluationRepository {
     List<Courses> findAllCourses();
     List<Question> findAllQuestions();
     List<Student> findAllStudents();
+    List<Answer> findAllAnswers();
 
     //    int updateEvaluation(Evaluation evaluation);
     //    int deleteEvaluation(Evaluation evaluation);

@@ -34,4 +34,27 @@ public class Answer {
         this.id = id;
     }
 
+    public int getQuestion_id() {
+        return question_id;
+    }
+
+    public void setQuestion_id(int question_id) {
+        this.question_id = question_id;
+    }
+
+    public int getEvaluation_id() {
+        return evaluation_id;
+    }
+
+    public void setEvaluation_id(int evaluation_id) {
+        this.evaluation_id = evaluation_id;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 }
